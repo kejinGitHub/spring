@@ -544,7 +544,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			* 	自定义标签解析 如：<context:component-scan base-package="com.xiangxue.jack"/>
 			* 	自定义标签解析流程：
 			* 		a、根据当前解析标签的头信息找到对应的namespaceUri
-			* 		b、加载spring所以jar中的spring.handlers文件。并建立映射关系
+			* 		b、加载spring所有jar中的spring.handlers文件。并建立映射关系
 			* 		c、根据namespaceUri从映射关系中找到对应的实现了NamespaceHandler接口的类
 			* 		d、调用类的init方法，init方法是注册了各种自定义标签的解析类
 			* 		e、根据namespaceUri找到对应的解析类，然后调用paser方法完成标签解析
