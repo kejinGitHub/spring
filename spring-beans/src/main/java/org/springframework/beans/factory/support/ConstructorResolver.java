@@ -204,6 +204,7 @@ class ConstructorResolver {
 			for (Constructor<?> candidate : candidates) {
 				int parameterCount = candidate.getParameterCount();
 
+				//如果之前的构造器已经有一个被处理过，则后面的构造器就不用处理了
 				if (constructorToUse != null && argsToUse != null && argsToUse.length > parameterCount) {
 					// Already found greedy constructor that can be satisfied ->
 					// do not look any further, there are only less greedy constructors left.
@@ -224,6 +225,7 @@ class ConstructorResolver {
 								paramNames = pnd.getParameterNames(candidate);
 							}
 						}
+						//这里会触发构造函数中参数的getBean操作，会实例化参数的值
 						argsHolder = createArgumentArray(beanName, mbd, resolvedValues, bw, paramTypes, paramNames,
 								getUserDeclaredConstructor(candidate), autowiring, candidates.length == 1);
 					}
@@ -399,6 +401,7 @@ class ConstructorResolver {
 		Class<?> factoryClass;
 		boolean isStatic;
 
+		//获取factoryBean name
 		String factoryBeanName = mbd.getFactoryBeanName();
 		if (factoryBeanName != null) {
 			if (factoryBeanName.equals(beanName)) {
@@ -410,6 +413,7 @@ class ConstructorResolver {
 				throw new ImplicitlyAppearedSingletonException();
 			}
 			factoryClass = factoryBean.getClass();
+			//factoryMethod要为非静态方法
 			isStatic = false;
 		}
 		else {
@@ -420,6 +424,7 @@ class ConstructorResolver {
 			}
 			factoryBean = null;
 			factoryClass = mbd.getBeanClass();
+			//factoryMethod需要为静态方法
 			isStatic = true;
 		}
 
