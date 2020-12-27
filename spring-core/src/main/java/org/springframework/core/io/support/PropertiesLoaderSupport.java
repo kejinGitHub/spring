@@ -178,6 +178,7 @@ public abstract class PropertiesLoaderSupport {
 					logger.trace("Loading properties file from " + location);
 				}
 				try {
+					//加载配置文件
 					PropertiesLoaderUtils.fillProperties(
 							props, new EncodedResource(location, this.fileEncoding), this.propertiesPersister);
 				}

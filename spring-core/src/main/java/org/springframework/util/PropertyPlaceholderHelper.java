@@ -145,16 +145,21 @@ public class PropertyPlaceholderHelper {
 					throw new IllegalArgumentException(
 							"Circular placeholder reference '" + originalPlaceholder + "' in property definitions");
 				}
+				//递归解析 ${${}}
 				// Recursive invocation, parsing placeholders contained in the placeholder key.
 				placeholder = parseStringValue(placeholder, placeholderResolver, visitedPlaceholders);
 				// Now obtain the value for the fully resolved key...
+				//掉到 this::getPropertyAsRawString  ${enjoy.name:jack}
 				String propVal = placeholderResolver.resolvePlaceholder(placeholder);
 				if (propVal == null && this.valueSeparator != null) {
 					int separatorIndex = placeholder.indexOf(this.valueSeparator);
 					if (separatorIndex != -1) {
 						String actualPlaceholder = placeholder.substring(0, separatorIndex);
+						//获取 ":"号后面的默认值
 						String defaultValue = placeholder.substring(separatorIndex + this.valueSeparator.length());
+						//":"前面的参数解析
 						propVal = placeholderResolver.resolvePlaceholder(actualPlaceholder);
+						//如果解析不到，则用默认值
 						if (propVal == null) {
 							propVal = defaultValue;
 						}
