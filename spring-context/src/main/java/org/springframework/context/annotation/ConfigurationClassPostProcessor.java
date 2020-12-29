@@ -337,10 +337,13 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 						registry, this.sourceExtractor, this.resourceLoader, this.environment,
 						this.importBeanNameGenerator, parser.getImportRegistry());
 			}
+			//@Bean @ImportedResource ImportBeanDefinitionRegistrar具体处理逻辑
 			this.reader.loadBeanDefinitions(configClasses);
+			//已经解析完成了的类
 			alreadyParsed.addAll(configClasses);
 
 			candidates.clear();
+			//比较差异又走一遍解析流程
 			if (registry.getBeanDefinitionCount() > candidateNames.length) {
 				String[] newCandidateNames = registry.getBeanDefinitionNames();
 				Set<String> oldCandidateNames = new HashSet<>(Arrays.asList(candidateNames));
