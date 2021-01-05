@@ -138,6 +138,7 @@ class ConfigurationClassBeanDefinitionReader {
 			return;
 		}
 
+		//@Import进来的类，和内部类走这里变成BeanDefinition
 		if (configClass.isImported()) {
 			registerBeanDefinitionForImportedConfigurationClass(configClass);
 		}

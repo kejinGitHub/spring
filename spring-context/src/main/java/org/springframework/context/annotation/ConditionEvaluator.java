@@ -91,20 +91,25 @@ class ConditionEvaluator {
 		}
 
 		List<Condition> conditions = new ArrayList<>();
+		//获取@Conditional注解的value值
 		for (String[] conditionClasses : getConditionClasses(metadata)) {
 			for (String conditionClass : conditionClasses) {
+				//反射实例化Condition对象
 				Condition condition = getCondition(conditionClass, this.context.getClassLoader());
 				conditions.add(condition);
 			}
 		}
 
+		//排序
 		AnnotationAwareOrderComparator.sort(conditions);
 
+		//调用每一个condition的matches方法
 		for (Condition condition : conditions) {
 			ConfigurationPhase requiredPhase = null;
 			if (condition instanceof ConfigurationCondition) {
 				requiredPhase = ((ConfigurationCondition) condition).getConfigurationPhase();
 			}
+			//调用matches方法
 			if ((requiredPhase == null || requiredPhase == phase) && !condition.matches(this.context, metadata)) {
 				return true;
 			}

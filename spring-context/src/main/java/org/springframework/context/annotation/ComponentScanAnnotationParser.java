@@ -93,7 +93,7 @@ class ComponentScanAnnotationParser {
 
 		scanner.setResourcePattern(componentScan.getString("resourcePattern"));
 
-		for (AnnotationAttributes filter : componentScan.getAnnotationArray("includeFilters")) {
+		for (AnnotationAttributes filter : componentScan.getAnnotationArray("c")) {
 			for (TypeFilter typeFilter : typeFiltersFor(filter)) {
 				scanner.addIncludeFilter(typeFilter);
 			}

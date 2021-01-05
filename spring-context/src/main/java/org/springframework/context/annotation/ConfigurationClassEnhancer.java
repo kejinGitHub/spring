@@ -314,6 +314,7 @@ class ConfigurationClassEnhancer {
 				}
 			}
 
+			//只有当@Bean的方法是被spring掉到的时候，才会走下来
 			if (isCurrentlyInvokedFactoryMethod(beanMethod)) {
 				// The factory is calling the bean method in order to instantiate and register the bean
 				// (i.e. via a getBean() call) -> invoke the super implementation of the method to actually
@@ -328,9 +329,11 @@ class ConfigurationClassEnhancer {
 									"these container lifecycle issues; see @Bean javadoc for complete details.",
 							beanMethod.getDeclaringClass().getSimpleName(), beanMethod.getName()));
 				}
+				//调用被代理方法
 				return cglibMethodProxy.invokeSuper(enhancedConfigInstance, beanMethodArgs);
 			}
 
+			//用代理对象手动调用@bean的方法的时候才会走下来
 			return resolveBeanReference(beanMethod, beanMethodArgs, beanFactory, beanName);
 		}
 
