@@ -26,6 +26,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.core.NamedThreadLocal;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Alternative to an object pool. This {@link org.springframework.aop.TargetSource}
  * uses a threading model in which every thread has its own copy of the target.
@@ -46,7 +49,11 @@ import org.springframework.core.NamedThreadLocal;
  * @author Juergen Hoeller
  * @author Rob Harrop
  * @see ThreadLocalTargetSourceStats
+<<<<<<< HEAD
  * @see org.springframework.beans.factory.DisposableBean#destroy()
+=======
+ * @see DisposableBean#destroy()
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  */
 @SuppressWarnings("serial")
 public class ThreadLocalTargetSource extends AbstractPrototypeBasedTargetSource

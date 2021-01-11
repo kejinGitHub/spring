@@ -18,12 +18,15 @@ package org.springframework.aop.target;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.aop.TargetSource;
 import org.springframework.lang.Nullable;
 
 /**
+<<<<<<< HEAD
  * {@link org.springframework.aop.TargetSource} implementation that will
+=======
+ * {@link TargetSource} implementation that will
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  * lazily create a user-managed object.
  *
  * <p>Creation of the lazy target object is controlled by the user by implementing

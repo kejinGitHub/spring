@@ -18,12 +18,15 @@ package org.springframework.aop.target.dynamic;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.aop.TargetSource;
 import org.springframework.lang.Nullable;
 
 /**
+<<<<<<< HEAD
  * Abstract {@link org.springframework.aop.TargetSource} implementation that
+=======
+ * Abstract {@link TargetSource} implementation that
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  * wraps a refreshable target object. Subclasses can determine whether a
  * refresh is required, and need to provide fresh target objects.
  *

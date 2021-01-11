@@ -16,7 +16,11 @@
 
 package org.springframework.aop.target;
 
+
 import java.io.Serializable;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -29,6 +33,13 @@ import org.springframework.util.ObjectUtils;
 /**
  * Base class for {@link org.springframework.aop.TargetSource} implementations
  * that are based on a Spring {@link org.springframework.beans.factory.BeanFactory},
+=======
+import java.io.Serializable;
+
+/**
+ * Base class for {@link TargetSource} implementations
+ * that are based on a Spring {@link BeanFactory},
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  * delegating to Spring-managed bean instances.
  *
  * <p>Subclasses can create prototype instances or lazily access a
@@ -41,7 +52,11 @@ import org.springframework.util.ObjectUtils;
  * @author Juergen Hoeller
  * @author Rod Johnson
  * @since 1.1.4
+<<<<<<< HEAD
  * @see org.springframework.beans.factory.BeanFactory#getBean
+=======
+ * @see BeanFactory#getBean
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  * @see LazyInitTargetSource
  * @see PrototypeTargetSource
  * @see ThreadLocalTargetSource

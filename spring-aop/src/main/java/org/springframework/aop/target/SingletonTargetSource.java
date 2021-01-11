@@ -24,6 +24,12 @@ import org.springframework.util.ObjectUtils;
 
 /**
  * Implementation of the {@link org.springframework.aop.TargetSource} interface
+=======
+import java.io.Serializable;
+
+/**
+ * Implementation of the {@link TargetSource} interface
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  * that holds a given object. This is the default implementation of the TargetSource
  * interface, as used by the Spring AOP framework. There is usually no need to
  * create objects of this class in application code.

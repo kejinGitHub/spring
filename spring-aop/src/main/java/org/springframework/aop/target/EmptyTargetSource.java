@@ -22,6 +22,8 @@ import org.springframework.aop.TargetSource;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
+import java.io.Serializable;
+
 /**
  * Canonical {@code TargetSource} when there is no target
  * (or just the target class known), and behavior is supplied

@@ -23,6 +23,15 @@ import org.springframework.util.Assert;
 
 /**
  * {@link org.springframework.aop.TargetSource} implementation that
+=======
+import org.springframework.aop.TargetSource;
+import org.springframework.util.Assert;
+
+import java.io.Serializable;
+
+/**
+ * {@link TargetSource} implementation that
+>>>>>>> 055a6dae67632affc9e7b77b74c6f1114bb9f49b
  * caches a local target object, but allows the target to be swapped
  * while the application is running.
  *
