@@ -98,6 +98,7 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 		List<Advisor> candidateAdvisors = findCandidateAdvisors();
 		//判断候选的切面是否作用在当前beanClass上面，就是一个匹配过程。。现在就是一个匹配
 		List<Advisor> eligibleAdvisors = findAdvisorsThatCanApply(candidateAdvisors, beanClass, beanName);
+		//针对@Aspect注解切面添加了一个默认的切面 DefaultPointcutAdvisor
 		extendAdvisors(eligibleAdvisors);
 		if (!eligibleAdvisors.isEmpty()) {
 			//对有@Order@Priority进行排序
