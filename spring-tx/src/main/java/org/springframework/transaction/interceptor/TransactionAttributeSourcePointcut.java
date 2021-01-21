@@ -37,6 +37,7 @@ import org.springframework.util.ObjectUtils;
 abstract class TransactionAttributeSourcePointcut extends StaticMethodMatcherPointcut implements Serializable {
 
 	protected TransactionAttributeSourcePointcut() {
+		//设置ClassFilter
 		setClassFilter(new TransactionAttributeSourceClassFilter());
 	}
 
@@ -44,6 +45,7 @@ abstract class TransactionAttributeSourcePointcut extends StaticMethodMatcherPoi
 	@Override
 	public boolean matches(Method method, Class<?> targetClass) {
 		TransactionAttributeSource tas = getTransactionAttributeSource();
+		//只要方法上面能拿到事务属性就返回true，就生成代理
 		return (tas == null || tas.getTransactionAttribute(method, targetClass) != null);
 	}
 
